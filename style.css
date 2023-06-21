@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+
+    /* Las Fontitas */
+    --ff-heading: 'Epilogue', sans-serif;
+    --ff-texting: 'Open sans', sans-serif;
+
+    /* Las Cores */
+    --hue: 250;
+    --bg-primary: hsl(var(--hue), 22%, 20%);
+    --fc-primary: hsl(var(--hue), 0%, 100%);
+    --fc-secondary: hsl(var(--hue), 50%, 80%);
+    --fc-dark: hsl(var(--hue), 100%, 11%);
+
+    /* Tamaño Del Texto */
+    font-size: 62.5%;
+    --fs-body: 1.6rem;
+    --fs-header: 4.0rem;
+}
+
+body{
+
+    font-family: var(--ff-texting);
+    background-color: var(--bg-primary);
+    color:var(--fc-primary);
+    font-size: var(--fs-body);
+
+}
+
+.page{
+    max-width: 33rem;
+    margin: 0 auto;
+}
+
+@media (min-width:868px){
+    :root{
+        --fs-header: 5.6rem;
+    }
+   
+    .page{
+        max-width: 117rem;
+        padding: 0 5rem;
+    }
+
+    main{
+        grid-template-areas: "A B B"
+        "C C D";
+    }
+
+    main div:nth-child(1){
+        grid-area: A;
+    }
+
+    main div:nth-child(2){
+        grid-area: B;
+    }
+
+    main div:nth-child(3){
+        grid-area: C;
+    }
+
+    main div:nth-child(4){
+        grid-area: D;
+    }
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+header{
+    margin: 10rem 0 8rem;
+
+    font-family: var(--ff-heading);
+
+
+    text-align: center;
+
+    /* la animacíon*/
+    animation: topdown 700ms;
+
+}
+
+header p{
+    font-family: var(--fc-secondary);
+    text-transform: uppercase;
+    font-weight: 400;
+
+    line-height: 3.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 3.7rem;
+}
+
+header h1{
+    font-weight: 800;
+    font-family: var(--ff-heading);
+    line-height: 4.8rem;
+}
+
+main{
+    display: grid;
+    gap: 3.2rem;
+
+    padding-bottom: 10rem;
+    animation: downtop 700ms 350ms backwards;
+}
+
+.card {
+
+    position: relative;
+    
+    font-family: var(--ff-heading);
+    
+    transition: .3s;
+}
+
+.card img{
+    height: 41.6rem;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.card h2{
+    position: absolute;
+    bottom: 5.2rem;
+    left: 2.8rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+
+
+    font-size: 4rem;
+    font-weight: 800;
+
+}
+
+.card h2 span{
+    border-radius: 2rem;
+    background-color: var(--fc-primary);
+    font-size: var(--fs-body);
+    color: var(--fc-dark);
+    font-weight: 400;
+    height: 3.8rem;
+    padding: 0 1.6rem;
+
+    width:fit-content;
+
+    display: inline-flex;
+    align-items: center;
+}
+
+.card img:hover{
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+
+@keyframes topdown{
+    0%{
+        opacity: 0;
+        transform: translateY(-15rem);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes downtop{
+    0%{
+        opacity: 0;
+        transform: translateX(-15rem);
+    }
+        
+    
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
